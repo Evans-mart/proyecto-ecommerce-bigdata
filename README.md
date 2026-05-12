@@ -35,7 +35,7 @@ proyecto-ecommerce-bigdata/
 │   └── persistence.py    # Fase 3: Escritura en PostgreSQL y Redis
 ├── docker-compose.yml    # Orquestación de MinIO, PostgreSQL y Redis
 └── README.md             # Documentación principal del proyecto
-
+```
 ## Volumen de Datos (MovieLens 25M Amplificado)
 
 * **Usuarios Activos:** 1,000,000+
