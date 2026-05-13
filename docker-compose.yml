@@ -1,0 +1,26 @@
+version: '3.8'
+
+services:
+  # Capa de Persistencia Analítica
+  postgres:
+    image: postgres:15-alpine
+    container_name: dw_postgres
+    ports:
+      - "5432:5432"
+    environment:
+      POSTGRES_USER: ecommerce_admin
+      POSTGRES_PASSWORD: admin_password
+      POSTGRES_DB: recommendations_db
+    volumes:
+      - pg_data:/var/lib/postgresql/data
+
+  # Capa de Servicio / Caché de Baja Latencia
+  redis:
+    image: redis:7-alpine
+    container_name: cache_redis
+    ports:
+      - "6379:6379"
+    command: redis-server --save 60 1 --loglevel warning
+
+volumes:
+  pg_data:
